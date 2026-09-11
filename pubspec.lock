@@ -376,6 +376,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  git:
+    dependency: transitive
+    description:
+      name: git
+      sha256: "46556ed28a3b25b1be9bcde0291d84a57b206a899f8b37bf7ab335d8fb640e84"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.2"
+  github_pages:
+    dependency: "direct dev"
+    description:
+      name: github_pages
+      sha256: "028e7300afec71262c325a5595eebbdbd44369f9911720b42a73e58e9daad5df"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   glob:
     dependency: transitive
     description:

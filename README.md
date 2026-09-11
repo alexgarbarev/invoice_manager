@@ -1,4 +1,4 @@
-# <img src="assets/icons/icon-192x192.png" alt="Invoice Manager Icon" width="30"> Invoice Manager
+# <img src="assets/icons/icon-192x192.png" alt="Invoice Manager Icon" width="30"> [Invoice Manager](https://alexgarbarev.github.io/invoice_manager/)
 
 Simple invoice management app that works locally in your browser. For freelancers, independent
 contractors, and professionals working
@@ -86,11 +86,15 @@ flutter run -d chrome
 
 ### First Run
 
-1. **Demo data** (optional) - load sample data from Settings
-2. **Create Contractor** - your info as a contractor
-3. **Create Company** - client/company
-4. **Create Contract** - work terms (hourly or fixed)
-5. **Create Invoice** - add line items and export PDF
+**Demo data included:** On first launch, sample data is automatically loaded (1 contractor, 1
+company, 2 contracts, 2 invoices). Use them to explore the app or delete them to start fresh.
+
+1. **Explore demo data** - see how contractors, companies, contracts, and invoices work together
+2. **Delete demo data** - clear everything and start with your own data
+3. **Create Contractor** - your info as a contractor
+4. **Create Company** - client/company
+5. **Create Contract** - work terms (hourly or fixed)
+6. **Create Invoice** - add line items and export PDF
 
 ---
 
