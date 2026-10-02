@@ -341,7 +341,7 @@ class InvoiceDetailsPanel extends StatelessWidget {
               if (showPeriod)
                 Padding(padding: const EdgeInsets.all(8), child: Text(item.period ?? '')),
               if (!isFixed)
-                Padding(padding: const EdgeInsets.all(8), child: Text('${item.quantity}')),
+                Padding(padding: const EdgeInsets.all(8), child: Text(item.quantityDisplay)),
               if (!isFixed)
                 Padding(
                   padding: const EdgeInsets.all(8),

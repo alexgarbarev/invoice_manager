@@ -299,7 +299,7 @@ class InvoicePdfService {
                             pw.Padding(
                               padding: const pw.EdgeInsets.all(8),
                               child: pw.Text(
-                                item.quantity.toString(),
+                                item.quantityDisplay,
                               ),
                             ),
                             pw.Padding(

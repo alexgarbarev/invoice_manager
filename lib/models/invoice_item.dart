@@ -3,7 +3,7 @@ import '../common/sequence_generator.dart';
 class InvoiceItem {
   final String id;
   final String description;
-  final int quantity;
+  final double quantity;
   final double price;
   final String? period;
   final double? amount;
@@ -21,10 +21,13 @@ class InvoiceItem {
 
   double get totalAmount => amount ?? (quantity * price);
 
+  String get quantityDisplay =>
+      quantity == quantity.roundToDouble() ? quantity.toInt().toString() : quantity.toString();
+
   InvoiceItem copyWith({
     String? id,
     String? description,
-    int? quantity,
+    double? quantity,
     double? price,
     String? period,
     double? amount,

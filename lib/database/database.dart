@@ -73,7 +73,7 @@ class DbInvoiceItems extends Table {
   TextColumn get invoiceId => text()();
   TextColumn get description => text()();
   TextColumn get period => text().nullable()();
-  IntColumn get quantity => integer().withDefault(const Constant(1))();
+  RealColumn get quantity => real().withDefault(const Constant(1.0))();
   RealColumn get price => real().withDefault(const Constant(0.0))();
   RealColumn get amount => real().nullable()();
 
