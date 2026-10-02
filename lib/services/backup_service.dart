@@ -323,7 +323,7 @@ class BackupService {
                     period: map['period'] != null
                         ? Value(map['period'] as String)
                         : const Value<String>.absent(),
-                    quantity: Value(map['quantity'] as int),
+                    quantity: Value((map['quantity'] as num).toDouble()),
                     price: Value(map['price'] as double),
                     amount: map['amount'] != null
                         ? Value(map['amount'] as double)

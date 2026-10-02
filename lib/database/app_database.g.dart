@@ -2813,13 +2813,13 @@ class $DbInvoiceItemsTable extends DbInvoiceItems
     'quantity',
   );
   @override
-  late final GeneratedColumn<int> quantity = GeneratedColumn<int>(
+  late final GeneratedColumn<double> quantity = GeneratedColumn<double>(
     'quantity',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.double,
     requiredDuringInsert: false,
-    defaultValue: const Constant(1),
+    defaultValue: const Constant(1.0),
   );
   static const VerificationMeta _priceMeta = const VerificationMeta('price');
   @override
@@ -2936,7 +2936,7 @@ class $DbInvoiceItemsTable extends DbInvoiceItems
         data['${effectivePrefix}period'],
       ),
       quantity: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
+        DriftSqlType.double,
         data['${effectivePrefix}quantity'],
       )!,
       price: attachedDatabase.typeMapping.read(
@@ -2961,7 +2961,7 @@ class DbInvoiceItem extends DataClass implements Insertable<DbInvoiceItem> {
   final String invoiceId;
   final String description;
   final String? period;
-  final int quantity;
+  final double quantity;
   final double price;
   final double? amount;
   const DbInvoiceItem({
@@ -2982,7 +2982,7 @@ class DbInvoiceItem extends DataClass implements Insertable<DbInvoiceItem> {
     if (!nullToAbsent || period != null) {
       map['period'] = Variable<String>(period);
     }
-    map['quantity'] = Variable<int>(quantity);
+    map['quantity'] = Variable<double>(quantity);
     map['price'] = Variable<double>(price);
     if (!nullToAbsent || amount != null) {
       map['amount'] = Variable<double>(amount);
@@ -3016,7 +3016,7 @@ class DbInvoiceItem extends DataClass implements Insertable<DbInvoiceItem> {
       invoiceId: serializer.fromJson<String>(json['invoiceId']),
       description: serializer.fromJson<String>(json['description']),
       period: serializer.fromJson<String?>(json['period']),
-      quantity: serializer.fromJson<int>(json['quantity']),
+      quantity: serializer.fromJson<double>(json['quantity']),
       price: serializer.fromJson<double>(json['price']),
       amount: serializer.fromJson<double?>(json['amount']),
     );
@@ -3029,7 +3029,7 @@ class DbInvoiceItem extends DataClass implements Insertable<DbInvoiceItem> {
       'invoiceId': serializer.toJson<String>(invoiceId),
       'description': serializer.toJson<String>(description),
       'period': serializer.toJson<String?>(period),
-      'quantity': serializer.toJson<int>(quantity),
+      'quantity': serializer.toJson<double>(quantity),
       'price': serializer.toJson<double>(price),
       'amount': serializer.toJson<double?>(amount),
     };
@@ -3040,7 +3040,7 @@ class DbInvoiceItem extends DataClass implements Insertable<DbInvoiceItem> {
     String? invoiceId,
     String? description,
     Value<String?> period = const Value.absent(),
-    int? quantity,
+    double? quantity,
     double? price,
     Value<double?> amount = const Value.absent(),
   }) => DbInvoiceItem(
@@ -3101,7 +3101,7 @@ class DbInvoiceItemsCompanion extends UpdateCompanion<DbInvoiceItem> {
   final Value<String> invoiceId;
   final Value<String> description;
   final Value<String?> period;
-  final Value<int> quantity;
+  final Value<double> quantity;
   final Value<double> price;
   final Value<double?> amount;
   final Value<int> rowid;
@@ -3132,7 +3132,7 @@ class DbInvoiceItemsCompanion extends UpdateCompanion<DbInvoiceItem> {
     Expression<String>? invoiceId,
     Expression<String>? description,
     Expression<String>? period,
-    Expression<int>? quantity,
+    Expression<double>? quantity,
     Expression<double>? price,
     Expression<double>? amount,
     Expression<int>? rowid,
@@ -3154,7 +3154,7 @@ class DbInvoiceItemsCompanion extends UpdateCompanion<DbInvoiceItem> {
     Value<String>? invoiceId,
     Value<String>? description,
     Value<String?>? period,
-    Value<int>? quantity,
+    Value<double>? quantity,
     Value<double>? price,
     Value<double?>? amount,
     Value<int>? rowid,
@@ -3187,7 +3187,7 @@ class DbInvoiceItemsCompanion extends UpdateCompanion<DbInvoiceItem> {
       map['period'] = Variable<String>(period.value);
     }
     if (quantity.present) {
-      map['quantity'] = Variable<int>(quantity.value);
+      map['quantity'] = Variable<double>(quantity.value);
     }
     if (price.present) {
       map['price'] = Variable<double>(price.value);
@@ -4574,7 +4574,7 @@ typedef $$DbInvoiceItemsTableCreateCompanionBuilder =
       required String invoiceId,
       required String description,
       Value<String?> period,
-      Value<int> quantity,
+      Value<double> quantity,
       Value<double> price,
       Value<double?> amount,
       Value<int> rowid,
@@ -4585,7 +4585,7 @@ typedef $$DbInvoiceItemsTableUpdateCompanionBuilder =
       Value<String> invoiceId,
       Value<String> description,
       Value<String?> period,
-      Value<int> quantity,
+      Value<double> quantity,
       Value<double> price,
       Value<double?> amount,
       Value<int> rowid,
@@ -4620,7 +4620,7 @@ class $$DbInvoiceItemsTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get quantity => $composableBuilder(
+  ColumnFilters<double> get quantity => $composableBuilder(
     column: $table.quantity,
     builder: (column) => ColumnFilters(column),
   );
@@ -4665,7 +4665,7 @@ class $$DbInvoiceItemsTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get quantity => $composableBuilder(
+  ColumnOrderings<double> get quantity => $composableBuilder(
     column: $table.quantity,
     builder: (column) => ColumnOrderings(column),
   );
@@ -4704,7 +4704,7 @@ class $$DbInvoiceItemsTableAnnotationComposer
   GeneratedColumn<String> get period =>
       $composableBuilder(column: $table.period, builder: (column) => column);
 
-  GeneratedColumn<int> get quantity =>
+  GeneratedColumn<double> get quantity =>
       $composableBuilder(column: $table.quantity, builder: (column) => column);
 
   GeneratedColumn<double> get price =>
@@ -4751,7 +4751,7 @@ class $$DbInvoiceItemsTableTableManager
                 Value<String> invoiceId = const Value.absent(),
                 Value<String> description = const Value.absent(),
                 Value<String?> period = const Value.absent(),
-                Value<int> quantity = const Value.absent(),
+                Value<double> quantity = const Value.absent(),
                 Value<double> price = const Value.absent(),
                 Value<double?> amount = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
@@ -4771,7 +4771,7 @@ class $$DbInvoiceItemsTableTableManager
                 required String invoiceId,
                 required String description,
                 Value<String?> period = const Value.absent(),
-                Value<int> quantity = const Value.absent(),
+                Value<double> quantity = const Value.absent(),
                 Value<double> price = const Value.absent(),
                 Value<double?> amount = const Value.absent(),
                 Value<int> rowid = const Value.absent(),

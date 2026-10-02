@@ -41,7 +41,7 @@ class _InvoiceItemRowState extends State<InvoiceItemRow> {
     _syncDateFormat();
     _descriptionController.text = widget.item.description;
     _periodController.text = widget.item.period ?? '';
-    _quantityController.text = '${widget.item.quantity}';
+    _quantityController.text = widget.item.quantityDisplay;
     _priceController.text = '${widget.item.price}';
     _amountController.text = widget.item.amount != null ? '${widget.item.amount}' : '';
   }
@@ -74,7 +74,7 @@ class _InvoiceItemRowState extends State<InvoiceItemRow> {
     final newItem = InvoiceItem(
       id: widget.item.id,
       description: _descriptionController.text,
-      quantity: int.tryParse(_quantityController.text) ?? 1,
+      quantity: double.tryParse(_quantityController.text) ?? 1,
       price: double.tryParse(_priceController.text) ?? 0.0,
       period: _periodController.text.isEmpty ? periodValue : _periodController.text,
       amount: widget.contract.fixed ? (double.tryParse(_amountController.text)) : null,
@@ -124,7 +124,7 @@ class _InvoiceItemRowState extends State<InvoiceItemRow> {
               showLabel: widget.showLabels,
               label: 'Qty',
               controller: _quantityController,
-              keyboardType: TextInputType.number,
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
               onChanged: (_) => _syncWithParent(),
             ),
           ),
